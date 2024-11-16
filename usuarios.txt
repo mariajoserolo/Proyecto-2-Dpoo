@@ -1,0 +1,3 @@
+a,b,i,a,	asdsad,Profesor
+Daniel,a,Daniel,b,	@,Profesor
+estudiante,c,a,b,sar,Estudiante
