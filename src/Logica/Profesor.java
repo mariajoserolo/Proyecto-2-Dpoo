@@ -14,8 +14,15 @@ public class Profesor extends Usuario {
 		this.listaActividadesCreadas = new ArrayList<>();
 	}
 		
-	public void addLP(LearningPath learningPath) {
+	public boolean addLP(LearningPath learningPath) {
 		listaLearningPath.add(learningPath);
+		if (listaLearningPath.contains(learningPath) == true) {
+			return true;
+			
+		}
+		else {
+			return false;
+		}
 		}
 	
 	public void addActividadCreada(Actividad actividad) {
