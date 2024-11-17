@@ -200,13 +200,29 @@ public class LearningPath implements Serializable{
 	}
 
 
-	public void addActividad(Actividad actividad) {
+	public boolean addActividad(Actividad actividad) {
 		this.listaActividades.add(actividad);
+		if (listaActividades.contains(actividad) == true) {
+			return true;
+			
+		}
+		else {
+			return false;
+		}
 	}
 	
-	public void eliminarActividad(Actividad actividad) {
+	public boolean eliminarActividad(Actividad actividad) {
 		listaActividades.remove(actividad);
-	}}
+		if (listaActividades.contains(actividad) == false) {
+			return true;
+			
+		}
+		else {
+			return false;
+		}
+	}}	
+
+
 	
 	
 			
