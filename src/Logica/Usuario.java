@@ -58,16 +58,16 @@ public abstract class Usuario implements Serializable {
 		this.apellido = apellido;
 	}
 	
-	public void login(String login, String password) {
+	public String login(String login, String password) {
         if (this.login.equals(login) && this.password.equals(password)) {
-            System.out.println("Inicio de sesión exitoso.");
+            return "Inicio de sesión exitoso.";
         } else {
-            System.out.println("Usuario o contraseña incorrectas.");
+            return "Usuario o contraseña incorrectas.";
         }
     }
 
-    public void logout() {
-        System.out.println("Sesión cerrada.");
+    public String logout() {
+        return "Sesión cerrada.";
     }
 
 	

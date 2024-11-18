@@ -14,15 +14,33 @@ public class Estudiante extends Usuario{
 		this.listaLearningPathInscritos = new ArrayList<>();
 	}
 		
-	public void inscribirLP(LearningPath learningPath) {
+	public boolean inscribirLP(LearningPath learningPath) {
 		listaLearningPathInscritos.add(learningPath);
+		if (listaLearningPathInscritos.contains(learningPath) == true){
+			return true;
+			}
+		else { 
+			return false;
+			}
+			
+		
 	}
 	
-	 public void completarLearningPath(LearningPath learningPath) {
+	 public boolean completarLearningPath(LearningPath learningPath) {
 		 if (learningPath.isCompletado()==true) {
 			 listaLearningPathCompletados.add(learningPath);
 			 listaLearningPathInscritos.remove(learningPath);
-	    }}}
+			 
+	    }
+		 if (listaLearningPathCompletados.contains(learningPath) == true){
+				return true;
+				}
+			else { 
+				return false;
+				}
+		 
+		 }
+	 }
 	
 	
 

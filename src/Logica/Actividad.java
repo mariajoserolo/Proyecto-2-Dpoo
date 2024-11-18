@@ -143,11 +143,21 @@ public abstract class Actividad implements Serializable{
 	}
 
 
-	public void crearActividad(boolean profesor, String tipoActividad, Actividad actividad, LearningPath learningPath, int idLP) {
+	public boolean crearActividad(boolean profesor, String tipoActividad, Actividad actividad, LearningPath learningPath, int idLP) {
 		if (this.profesor==true) {
 			if(learningPath.getId()==idLP) {
 				learningPath.addActividad(actividad);
-		}}}}
+			}
+		}
+		ArrayList<Actividad> respuesta = learningPath.getListaActividades();
+		
+		if (respuesta.contains(actividad) == true) {
+			return true;
+			
+		}
+		else {
+			return false;
+		}}}
 
 
 

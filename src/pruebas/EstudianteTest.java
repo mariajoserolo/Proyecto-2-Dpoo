@@ -8,16 +8,19 @@ import Logica.Estudiante;
 import Logica.Actividad;
 import Logica.LearningPath;
 
+
 public class EstudianteTest {
 
 	private Estudiante estudiante;
 	private LearningPath learningPath;
-	private Actividad actividad;
+	//private Actividad actividad;
 	
 	@BeforeEach
 	public void setUp() {
-		this.estudiante = new Estudiante("Estudiante", "987", "estudiante.1@gmail.com", "Daniel", "Sánchez");
-		this.learningPath = new LearningPath("TituloLP", "DescripcionLP", "ObjetivosLP", "06-01-2024", "07-03-2024", 5, 500, 2, 6, 1);
+		this.estudiante = new Estudiante("Estudiante.1", "987", "estudiante.1@gmail.com", "Daniel", "Sánchez");
+		//this.learningPath = learningPath;
+		this.learningPath = new LearningPath(false, "Título", "Descripción", "Objetivos", "01-11-2024", "01-12-2024", 
+				7, 1000, 3, 6);
 	}
 	
 	@Test
@@ -29,22 +32,28 @@ public class EstudianteTest {
 	@Test
 	public void logInFallido() throws Exception{
 		String respuesta = estudiante.login("Estudiante.1", "564");
-		assertEquals("Inicio de sesión fallido. Usuario o contraseña incorrectos", respuesta);
+		assertEquals("Usuario o contraseña incorrectas.", respuesta);
 	}
 	
 	@Test
 	public void logoutExitoso() throws Exception{
 		String respuesta = estudiante.logout();
-		assertEquals("Sesión finalizada con éxito.", respuesta);
+		assertEquals("Sesión cerrada.", respuesta);
 	}
 	
 	@Test
 	public void inscripcionLPExitosa() throws Exception{
 		
-		boolean respuesta = estudiante.inscribirLP(this.learningPath);
-		assertTrue(respuesta, "Learning Path inscrito correctamente.");
+		//boolean respuesta = estudiante.inscribirLP(this.learningPath);
+		assertTrue(estudiante.inscribirLP(learningPath));
 		//Verifico que el LP nuevo esté en la lista de LPs inscritos
-		assertTrue(estudiante.listaLearningPathInscritos().contains(this.learningPath));		
+		//boolean respuesta2 = estudiante.completarLearningPath(this.learningPath);
+		
+		//(estudiante.listaLearningPathInscritos().contains(this.learningPath));		
+	}
+	@Test
+	public void completarLP() throws Exception{
+		assertFalse(estudiante.completarLearningPath(learningPath));
 	}
 	
 	
